@@ -1,4 +1,4 @@
-<$php 
+<!-- <$php 
 include '_dbconnect.php';
 if(isset($_POST['submit'])){
   $products = $_POST['products'];
@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
       }  
     }
   }
-?>
+?> -->
 
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 <?php include '_dbconnect.php';?>
-<?php include 'insert_script.php';?>
+<?php include 'insert-script.php';?>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Inventory Management System</a>
