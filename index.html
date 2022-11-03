@@ -26,20 +26,21 @@
   <div class="container">
     <form action="">
     <div class="dropdown">
-        <label for:"Products">Add Products</label>
-        <select id="products" name="Select the product" >
-prodcuts
+        <label for:"products">Add Products</label>
+        <select id="products" name="products">
+          <option value="Mobile">Mobile</option>
+          <option value="Mobile">PC</option>
+          <option value="Mobile">Laptop</option>
+        </select>
     </div>
     <br>
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Select the Quantity
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">1</a></li>
-        <li><a class="dropdown-item" href="#">2</a></li>
-        <li><a class="dropdown-item" href="#">3</a></li>
-      </ul>
+      <label for:"quantity">Select Quantity</label>
+        <select id="quantity" name="quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
     </div> <br>
     <input type="submit" class="btn btn-primary" value="Add">
   </form>
