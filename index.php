@@ -1,3 +1,19 @@
+<$php 
+include '_dbconnect.php';
+if(isset($_POST['submit'])){
+  $products = $_POST['products'];
+  $quantity = $_POST['quantity'];
+  if(!empty($products)){
+      $query = "INSERT INTO inventory (productName, quantity) VALUES('$products', '$quantity')";
+      $result = $conn->query($query);
+      if($result){
+        echo "Course is inserted successfully";
+      }  
+    }
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +40,7 @@
   </nav>
 
   <div class="container">
-    <form action="">
+    <form action="insert-option.php" method="POST">
     <div class="dropdown">
         <label for:"products">Add Products</label>
         <select id="products" name="products">
@@ -42,7 +58,7 @@
           <option value="3">3</option>
         </select>
     </div> <br>
-    <input type="submit" class="btn btn-primary" value="Add">
+    <input type="submit" class="btn btn-primary" value="Add" name = "submit">
   </form>
   </div>
 
