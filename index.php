@@ -24,6 +24,8 @@ if(isset($_POST['submit'])){
   <title>Inventory Management System</title>
 </head>
 <body>
+<?php include '_dbconnect.php';?>
+<?php include 'insert_script.php';?>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Inventory Management System</a>
@@ -40,7 +42,7 @@ if(isset($_POST['submit'])){
   </nav>
 
   <div class="container">
-    <form action="insert-option.php" method="POST">
+    <form action="insert-script.php" method="POST">
     <div class="dropdown">
         <label for:"products">Add Products</label>
         <select id="products" name="products">
@@ -61,6 +63,7 @@ if(isset($_POST['submit'])){
     <input type="submit" class="btn btn-primary" value="Add" name = "submit">
   </form>
   </div>
+
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
