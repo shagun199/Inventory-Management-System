@@ -31,8 +31,8 @@
         <label for:"products">Add Products</label>
         <select id="products" name="products">
           <option value="Mobile">Mobile</option>
-          <option value="Mobile">PC</option>
-          <option value="Mobile">Laptop</option>
+          <option value="PC">PC</option>
+          <option value="Laptop">Laptop</option>
         </select>
     </div>
     <br>
