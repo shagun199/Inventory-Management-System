@@ -1,19 +1,3 @@
-<!-- <$php 
-include '_dbconnect.php';
-if(isset($_POST['submit'])){
-  $products = $_POST['products'];
-  $quantity = $_POST['quantity'];
-  if(!empty($products)){
-      $query = "INSERT INTO inventory (productName, quantity) VALUES('$products', '$quantity')";
-      $result = $conn->query($query);
-      if($result){
-        echo "Course is inserted successfully";
-      }  
-    }
-  }
-?> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
