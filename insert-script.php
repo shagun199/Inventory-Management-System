@@ -9,6 +9,7 @@ if(isset($_POST['submit'])){
   $sqliQuery= "SELECT quantity FROM `products` WHERE `productName` = '$productName'";
       if ($result = $conn->query($sqliQuery)) {    
           while ($row = $result->fetch_object()) {
+              $nameOfProduct = $row->productName;
               $productQuantity = $row->quantity;
           }
           $result->close();
@@ -17,7 +18,7 @@ if(isset($_POST['submit'])){
       {
         echo 'something went wrong';
       }
-     if(!empty($productName) && !empty($quantity) && !empty($productQuantity)){
+     if(!empty($productName) && !empty($quantity) && !empty($productQuantity) && $nameOfProduct === $productName){
       $sql = "UPDATE `products` SET `quantity` = `quantity` + '$quantity' WHERE `productName` = '$productName'";
       $conn->query($sql);
      }
