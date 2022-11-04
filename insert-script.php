@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
 
   $check_product = "SELECT quantity FROM `products` WHERE `productName` = '$productName'";
   $conn->query($check_product);
-     if(!empty($productName) && !empty($quantity) && !empty($check_product)){
+     if(!empty($productName) && !empty($quantity) && !empty(`quantity`)){
       $sql = "UPDATE `products` SET `quantity` = `quantity` + '$quantity' WHERE `productName` = '$productName'";
       $conn->query($sql);
      }
