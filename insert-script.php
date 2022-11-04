@@ -3,7 +3,10 @@ include '_dbconnect.php';
 if(isset($_POST['submit'])){
   $productName = $_POST['products'];
   $quantity = $_POST['quantity'];
-     if(!empty($productName) && !empty($quantity)){
+
+  $check_product = "SELECT * FROM `products` WHERE `productName` = '$productName'";
+     if(!empty($productName) && !empty($quantity) && $quantity > 0 && $check_product != $productName){
+
       $query = "INSERT INTO products (productName, quantity) VALUES('$productName', '$quantity')";
       $result = $conn->query($query);
      
@@ -15,3 +18,6 @@ if(isset($_POST['submit'])){
       }    }
   }
 ?>
+
+
+$sql = "UPDATE `products` SET `quantity` = `quantity` + '$quantity' WHERE `productName` = '$productName'";
