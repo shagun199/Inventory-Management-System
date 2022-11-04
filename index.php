@@ -46,6 +46,35 @@
     </div> <br>
     <input type="submit" class="btn btn-primary" value="Add" name = "submit">
   </form>
+  <div class="container">
+  <?php 
+    $query = "SELECT * FROM products";
+
+
+echo '<table border="0" cellspacing="2" cellpadding="2"> 
+      <tr> 
+          <td> <font face="Arial">ProductId</font> </td> 
+          <td> <font face="Arial">Product Name</font> </td> 
+          <td> <font face="Arial">Product Quantity</font> </td> 
+      </tr>';
+
+if ($result = $mysqli->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $ProductId = $row["productId"];
+        $ProductName = $row["productName"];
+        $Quantity = $row["quantity"];
+
+        echo '<tr> 
+                  <td>'.$ProductId.'</td> 
+                  <td>'.$ProductName.'</td> 
+                  <td>'.$Quantity.'</td> 
+              </tr>';
+    }
+    $result->free();
+} 
+?>
+  </div>
+
   </div>
 
 
