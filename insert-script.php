@@ -1,7 +1,8 @@
 <?php 
 include '_dbconnect.php';
 if(isset($_POST['submit'])){
-  $prodName = $_POST['products'];
+  $product_name = $_POST['products'];
+  $prodName = strtolower($product_name);
   $quantity = $_POST['quantity'];
 
 
