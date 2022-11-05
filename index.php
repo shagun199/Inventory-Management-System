@@ -54,7 +54,7 @@ echo '<table border="0" cellspacing="2" cellpadding="2">
           <td> <font face="Arial">Product Quantity</font> </td> 
       </tr>';
 
-if ($result = $mysqli->query($query)) {
+if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
         $ProductId = $row["productId"];
         $ProductName = $row["productName"];
