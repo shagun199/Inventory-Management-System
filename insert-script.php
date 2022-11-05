@@ -4,8 +4,7 @@ if(isset($_POST['submit'])){
   $prodName = $_POST['products'];
   $quantity = $_POST['quantity'];
 
-  // $check_product = "SELECT quantity FROM `products` WHERE `productName` = '$productName'";
-  // $conn->query($check_product);
+
   $sqliQuery= "SELECT quantity,productName FROM `products` WHERE `productName` = '$prodName'";
       if ($result = $conn->query($sqliQuery)) {    
           while ($row = $result->fetch_object()) {
@@ -27,14 +26,13 @@ if(isset($_POST['submit'])){
       $result = $conn->query($query);
      
       if($result){
-        echo "Student detail is inserted successfully";
+        echo "Item inserted successfully";
       }  
      }
       else{
-        echo "Student detail is not inserted successfully";
+        echo "Item insertion failed";
       }    
   }
 ?>
 
 
-<!-- $sql = "UPDATE `products` SET `quantity` = `quantity` + '$quantity' WHERE `productName` = '$productName'"; -->
