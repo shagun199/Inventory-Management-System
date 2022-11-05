@@ -26,7 +26,7 @@
   </nav>
 
   <div class="container">
-    <form action="insert-script.php" method="POST">
+    <form action="" method="POST">
     <div class="dropdown">
         <label for:"products">Add Products</label>
         <input type="text" name="products" id="products">
@@ -45,28 +45,32 @@
   <div class="container">
   <?php 
     $query = "SELECT * FROM products";
-
-
-echo '<table border="0" cellspacing="2" cellpadding="2"> 
+    $ans = mysqli_query($conn,$query);
+    $row = mysqli_fetch_array($ans, MYSQLI_ASSOC);
+    if((!$row)) {
+      echo '<p>Nothing in the Inventory </p>';
+    }
+    else {
+      echo '<table border="0" cellspacing="2" cellpadding="2"> 
       <tr> 
           <td> <font face="Arial">ProductId</font> </td> 
           <td> <font face="Arial">Product Name</font> </td> 
           <td> <font face="Arial">Product Quantity</font> </td> 
       </tr>';
+      if ($result = $conn->query($query)) {
+          while ($row = $result->fetch_assoc()) {
+              $ProductId = $row["productId"];
+              $ProductName = $row["productName"];
+              $Quantity = $row["quantity"];
 
-if ($result = $conn->query($query)) {
-    while ($row = $result->fetch_assoc()) {
-        $ProductId = $row["productId"];
-        $ProductName = $row["productName"];
-        $Quantity = $row["quantity"];
-
-        echo '<tr> 
-                  <td>'.$ProductId.'</td> 
-                  <td>'.$ProductName.'</td> 
-                  <td>'.$Quantity.'</td> 
-              </tr>';
-    }
-    $result->free();
+              echo '<tr> 
+                        <td>'.$ProductId.'</td> 
+                        <td>'.$ProductName.'</td> 
+                        <td>'.$Quantity.'</td> 
+                    </tr>';
+          }
+          $result->free();
+          }
 } 
 ?>
   </div>
