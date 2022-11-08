@@ -29,9 +29,9 @@
     <form action="" method="POST">
     <div class="dropdown">
         <label for:"products">Add Products</label>
-        <input type="text" name="products" id="products">
+        <input type="text" name="products" id="products" required>
         <label for:"amount">Enter Amount</label>
-        <input type="number" name="amount" id="amount">
+        <input type="number" name="amount" id="amount" required>
     </div>
     <br>
     <div class="dropdown">
@@ -61,9 +61,11 @@
           <td> <font face="Arial">Product Name</font> </td> 
           <td> <font face="Arial">Product Quantity</font> </td> 
           <td> <font face="Arial">Amount</font> </td> 
+          <td> <font face="Arial">Delete Product</font> </td> 
       </tr>';
       if ($result = $conn->query($query)) {
           while ($row = $result->fetch_assoc()) {
+              $productId = $row["productId"];
               $ProductName = $row["productName"];
               $Quantity = $row["quantity"];
               $Amount = $row["amount"];
@@ -71,9 +73,19 @@
                         <td>'.$ProductName.'</td> 
                         <td>'.$Quantity.'</td> 
                         <td>'.$Amount.'</td>
+                        <td>
+                         <form action="index.php" method="POST"> 
+                            <input type="submit" class="btn btn-danger" name="delete" value="Delete" >
+                         </form>
+                        </td>
                     </tr>';
           }
           $result->free();
+          }
+          if(isset($_POST['delete'])) {
+            $delete = ("DELETE from products where productId = '$productId'");
+            $result = $conn->query($delete);
+            header("location:index.php");
           }
 } 
 ?>

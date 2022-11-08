@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
         echo 'something went wrong';
       }
      if(!empty($prodName) && !empty($quantity) && !empty($productQuantity) && $nameOfProduct === $prodName){
-      $sql = "UPDATE `products` SET `quantity` = `quantity` + '$quantity' WHERE `productName` = '$prodName'";
+      $sql = "UPDATE `products` SET `quantity` = `quantity` + '$quantity' , `amount` = `amount` + '$amount'  WHERE `productName` = '$prodName'";
       $conn->query($sql);
      }
      else if(!empty($prodName) && !empty($quantity)){
