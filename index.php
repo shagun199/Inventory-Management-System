@@ -30,6 +30,8 @@
     <div class="dropdown">
         <label for:"products">Add Products</label>
         <input type="text" name="products" id="products">
+        <label for:"amount">Enter Amount</label>
+        <input type="number" name="amount" id="amount">
     </div>
     <br>
     <div class="dropdown">
@@ -56,20 +58,19 @@
     else {
       echo '<table border="0" cellspacing="2" cellpadding="2"> 
       <tr> 
-          <td> <font face="Arial">ProductId</font> </td> 
           <td> <font face="Arial">Product Name</font> </td> 
           <td> <font face="Arial">Product Quantity</font> </td> 
+          <td> <font face="Arial">Amount</font> </td> 
       </tr>';
       if ($result = $conn->query($query)) {
           while ($row = $result->fetch_assoc()) {
-              $ProductId = $row["productId"];
               $ProductName = $row["productName"];
               $Quantity = $row["quantity"];
-
+              $Amount = $row["amount"];
               echo '<tr> 
-                        <td>'.$ProductId.'</td> 
                         <td>'.$ProductName.'</td> 
                         <td>'.$Quantity.'</td> 
+                        <td>'.$Amount.'</td>
                     </tr>';
           }
           $result->free();
